@@ -411,7 +411,13 @@
 
 // *** массивы и псевдомассивы ***
 
-// const arr = [1, 2, 3, 6, 8];
+// const arr = [21, 12, 3, 6, 8];
+// arr.sort(compareNum);
+// console.log(arr);
+
+// function compareNum(a, b) {
+//     return a - b
+// }
 
 // arr.forEach(function(item, i, arr) {
 //     console.log(`${i}: ${item} внутри массива ${arr}`)
@@ -433,6 +439,158 @@
 //     console.log(value);
 // }
 
-const str = prompt('введите товар', '');
-const product = str.split(', ');
-console.log(product);
+// const str = prompt('введите товар', '');
+// const product = str.split(', '); // создает массив
+// product.sort();
+// console.log(product.join('; ')); // склеивает в строку через символ которые напишем в скобках
+
+
+
+// **** Копирования объекта ****
+
+// const myObj = {
+//    a: 10,
+//    b: 5,
+//    c: {
+//     x: 7,
+//     y: 55
+//    }
+// };
+
+// function copy(obj) {
+//     let objCopy = {};
+
+//     let key;
+//     for (key in obj) {
+//         objCopy[key] = obj[key]
+//     }
+
+//     return objCopy;
+// }
+
+// const newNumbers = copy(myObj);
+
+// console.log(newNumbers);
+
+
+// **** Задачи на работу с объектами ****
+
+// const personalPlanPeter = {
+//   name: 'Peter',
+//   age: '29',
+//   skills: {
+//     languages: ['ru', 'eng'],
+//     programmingLangs: {
+//       js: '20%',
+//       php: '10%',
+//     },
+//     exp: '1 month',
+//   },
+//   showAgeAndLangs: function(plan) {
+//     const {age} = plan;
+//     const { languages } = plan.skills;
+//     let str = `Мне ${age} и я владею языками: `;
+
+//     languages.forEach(function(lang) {
+//         str += `${lang.toUpperCase()} `;
+//     });
+//     return str;
+//   }
+// };
+
+// function showExperience(plan) {
+//     let {skills: {exp}} = plan
+    
+//     return exp;
+// }
+
+// // showExperience(personalPlanPeter);
+
+// function showProgrammingLangs(plan) {
+//     let str = '';
+//     const {skills: {programmingLangs}} = plan;
+//     for(let key in programmingLangs) {
+//         str += `Язык ${key} изучен на ${programmingLangs[key]}\n`
+//     }
+//     return str;
+// }
+
+// showProgrammingLangs(personalPlanPeter);
+
+
+
+// **** Задачи на работу с массивами ****
+
+
+// const family = ['Peter', 'Ann', 'Alex', 'Linda'];
+
+// function showFamily(arr) {
+//     let str = '';
+//     arr.length === 0 ? str = 'Семья пуста' : str = 'Семья состоит из: ';
+
+//     arr.forEach(member => {
+//         str += `${member} `
+//     });
+//     console.log(str)
+//     return str;
+// }
+
+// showFamily(family);
+
+// const favoriteCities = ['liSBon', 'ROME', 'miLan', 'Dublin'];
+
+// function standardizeStrings(arr) {
+//     arr.forEach(a => {
+//         console.log(a.toLowerCase());
+//     })
+// }
+
+// standardizeStrings(favoriteCities);
+
+// const someString = 'This is some strange string';
+
+// function reverse(str) {
+//     return str.split('').reverse().join('');
+// }
+
+// reverse(someString);
+
+// const baseCurrencies = ['USD', 'EUR'];
+// const additionalCurrencies = ['UAH', 'RUB', 'CNY'];
+
+// function availableCurr(arr, missingCurr) {
+//     let str = '';
+//     arr.length === 0 ? str = 'Нет доступных валют' : str = 'Доступные валюты:\n';
+//     arr.forEach(function(curr, i) {
+//         if(curr !== missingCurr) {
+//             str += `${curr}\n`;
+//         }
+//     });
+
+//     console.log(str);
+//     return str;
+// }
+
+// availableCurr(baseCurrencies, additionalCurrencies);
+
+//  **** Основы ООП, прототипно-ориентированное наследование ****
+
+const soldier = {
+    health: 400,
+    armor: 100,
+    sayHallo: function(){
+        console.log('hello')
+    }
+}
+
+const jonh = Object.create(soldier);
+
+jonh.sayHallo();
+
+// const jonh = {
+//     health: 100,
+// }
+
+// Object.setPrototypeOf(jonh, soldier);
+
+// jonh.sayHallo()
