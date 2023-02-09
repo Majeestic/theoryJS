@@ -575,17 +575,17 @@
 
 //  **** Основы ООП, прототипно-ориентированное наследование ****
 
-const soldier = {
-    health: 400,
-    armor: 100,
-    sayHallo: function(){
-        console.log('hello')
-    }
-}
+// const soldier = {
+//     health: 400,
+//     armor: 100,
+//     sayHallo: function(){
+//         console.log('hello')
+//     }
+// }
 
-const jonh = Object.create(soldier);
+// const jonh = Object.create(soldier);
 
-jonh.sayHallo();
+// jonh.sayHallo();
 
 // const jonh = {
 //     health: 100,
@@ -594,3 +594,94 @@ jonh.sayHallo();
 // Object.setPrototypeOf(jonh, soldier);
 
 // jonh.sayHallo()
+
+
+// *** Продвинутая задача на работу с объектами и массивами ***
+
+// const shoppingMallData = {
+//   shops: [
+//     {
+//       width: 10,
+//       length: 5,
+//     },
+//     {
+//       width: 15,
+//       length: 7,
+//     },
+//     {
+//       width: 20,
+//       length: 5,
+//     },
+//     {
+//       width: 8,
+//       length: 10,
+//     },
+//   ],
+//   height: 5,
+//   moneyPer1m3: 30,
+//   budget: 50000,
+// };
+
+// function isBudgetEnough(data) {
+//     let squere = 0;
+//     let volume = 0;
+
+//     data.shops.forEach(shop => {
+//         squere += shop.width * shop.length;
+//     });
+
+//     volume = data.height * squere;
+
+//     if (data.budget - (volume * data.moneyPer1m3) >= 0) {
+//         console.log('Бюджета достаточно');
+//         return 'Бюджета достаточно';
+//     }else {
+//         console.log('Бюджета недостаточно');
+//         return 'Бюджета недостаточно';
+//     }
+// }
+
+// isBudgetEnough(shoppingMallData);
+
+// ***  Продвинутая задача на работу с объектами и массивами ***
+
+// const students = [
+//   'Peter',
+//   'Andrew',
+//   'Ann',
+//   'Mark',
+//   'Josh',
+//   'Sandra',
+//   'Cris',
+//   'Bernard',
+//   'Takesi',
+//   'Sam',
+// ];
+
+// function sortStudentsByGroups(arr) {
+//     arr.sort();
+//     const a = [], b = [], c = [], rest = [];
+
+//     for(let i = 0; i < arr.length; i++) {
+//         if (i < 3) {
+//             a.push(arr[i]);
+//         }else if (i < 6) {
+//             b.push(arr[i]);
+//         }else if (i < 9) {
+//             c.push(arr[i]);
+//         }else {
+//             rest.push(arr[i])
+//         }
+//     }
+
+//     console.log([
+//       a,
+//       b,
+//       c,
+//       `Оставшиеся студенты: ${rest.length === 0 ? '-' : rest.join(', ')}`,
+//     ]);
+
+//    return [a,b,c,`Оставшиеся студенты: ${rest.length === 0 ? '-' : rest.join(', ')}`]; 
+// }
+
+// sortStudentsByGroups(students);
