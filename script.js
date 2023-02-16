@@ -685,3 +685,276 @@
 // }
 
 // sortStudentsByGroups(students);
+
+
+
+// *** Динамичискай типизация ****
+
+
+// (Строка)
+// const num = 5;
+
+// console.log("https://vk.com/catalog/" + num)
+
+// const fontSize = 26 +'px';
+
+
+// (число)
+// console.log(typeof(Number('4')))
+
+// console.log(typeof(+'5'));
+
+// console.log(typeof(parseInt('15px', 10)));
+
+// let answ = +prompt('Hello', "");
+
+//  (Логический тип)
+
+
+// *** Замыкание и лексическое окружение ***
+
+
+// *****************************************************************************************
+//                  Вопросы на собеседование 
+// *****************************************************************************************
+
+// let x = 5;
+// console.log(x++); // будет 5 
+// //  когда мы работаем с пустым массивом он приводится к строке. По этому [] + false будет строка "false". [] + false - null получаем NaN
+// console.log([] + false - null + true) // получим NaN
+
+// let y = 1;
+// let x = y = 2;
+// console.log(x); // 2
+
+// console.log([] + 1 + 2); // "12" - string
+
+// console.log('1'[0]); // 1
+
+// console.log(2 && 1 && null && 0 && undefined); // Null потому что спотыкается на первом false и выводит его
+
+// console.log(!!(1 && 2) === (1 && 2)) //false потому что первое значение это Булиновое, а второе будет 2 так как если && не споткнулось на false передает последнее значение
+
+// console.log(null || 2 && 3 || 4) // Выдаст 3. или спотыкается на первой правде а тоесть 2 и 3, а оператор && выдает последнее истиное значение
+
+// const a = [1, 2, 3];
+// const b = [1, 2, 3];
+
+// console.log(a == b) // не равны потому что это разные ссыли на данные 
+
+// console.log(+'Infinity') // будет инфините но уже число
+
+// console.log('Ёжик' > 'яблоко'); // false 
+
+// console.log(0 || "" || 2 || undefined || true || false); // будет 2 так как или спотыкается на правде.
+
+
+// ***********************************************************************************************************
+//                          КОНЕЦ
+// *********************************************************************************************************
+
+
+//  ***   Задания на поиск ошибок в коде ****
+
+// const restorantData = {
+//   menu: [
+//     {
+//       name: 'Salad Caesar',
+//       price: '14$',
+//     },
+//     {
+//       name: 'Pizza Diavola',
+//       price: '9$',
+//     },
+//     {
+//       name: 'Beefsteak',
+//       price: '17$',
+//     },
+//     {
+//       name: 'Napoleon',
+//       price: '7$',
+//     },
+//   ],
+//   waitors: [
+//     { name: 'Alice', age: 22 },
+//     { name: 'John', age: 24 },
+//   ],
+//   averageLunchPrice: '20$',
+//   openNow: true,
+// };
+// function isOpen(prop) {
+//     let answer = '';
+//     prop ? (answer = 'Закрыто') : (answer = 'Открыто');
+
+//   return answer;
+// }
+
+// // console.log(isOpen(restorantData.openNow));
+
+// function isAverageLunchPriceTrue(fDish, sDish, average) {
+//   if ((+fDish.price.slice(0, -1)) + (+sDish.price.slice(0, -1)) < average) {
+//     return 'Цена ниже средней';
+//   } else {
+//     return 'Цена выше средней';
+//   }
+// }
+
+// console.log(
+//   isAverageLunchPriceTrue(
+//     restorantData.menu[0],
+//     restorantData.menu[1],
+//     restorantData.averageLunchPrice
+//   )
+// );
+
+// function transferWaitors(data) {
+//   const copy = Object.assign({}, data);
+
+//   copy.waitors = [{ name: 'Mike', age: 32 }];
+//   return copy;
+// }
+
+// console.log(transferWaitors(restorantData));
+
+
+
+
+// ******** События и их обработчики ***********************
+
+// const btn = document.querySelector('button');
+
+// // btn.addEventListener('click', () => {
+// //     alert('hello')
+// // })
+
+// // btn.accessKeyLabel('mouseenter', (e) => {
+// //     console.log(e);
+// //     console.log('hover');
+// // })
+
+// const deleteElement = (e) => {
+//     e.target.remove();
+//     // console.log(e.target)
+// }
+
+// btn.addEventListener('click', deleteElement);
+
+
+// ******************      Рекурсия       *****************
+
+// function pow(x, n) {
+//     let result = 1;
+
+//     for (let i = 0; i < n; i++) {
+//         result *= x
+//     }
+
+//    return result;
+// }
+
+// function pow(x, n) {
+//     if(n === 1) {
+//         return x;
+//     } else {
+//         return x * pow(x, n - 1);
+//     }
+// }
+
+// console.log(pow(2, 2));
+// console.log(pow(2, 3));
+// console.log(pow(2, 4));
+
+
+
+// **************************** Функции-конструкторы *********************
+
+// function User(name, id) {
+//     this.name = name;
+//     this.id = id;
+//     this.human = true;
+//     this.hello = function() {
+//         console.log(`Hello ${this.name}`);
+//     }
+// }
+
+// User.prototype.exit = function() {
+//     console.log(`Пользователь ${this.name} ушел`);
+// }
+
+// const mister = new User('Mister', 32);
+// const alex = new User('Alex', 25);
+
+// // console.log(mister);
+// // console.log(alex);
+// // mister.hello();
+// // alex.hello();
+
+// mister.exit();
+
+
+// ******************************* Контекст вызова. This  ********************************
+
+// 1) обычная функция: this = window, но если стоит use strict - undefined   *************************************
+    // function showThis() {
+    //     console.log(this);
+    // }
+    // showThis()
+    // *********** пример с собеседования ********************
+
+    // function showThis(a, b) {
+    //     // console.log(this);
+    //     function sum() {
+    //         console.log(this);
+    //         return this.a + this.b;
+    //     }
+    //     console.log(sum());
+    // }
+
+    // showThis(4, 6) // контекст вызова не меняется.
+
+
+    // 2) контекст у методов объекта - будет сам объект.
+
+    // const obj = {
+    //     a: 20,
+    //     b: 15,
+    //     sum: function() {
+    //         console.log(this);
+    //     }
+    // }
+
+    // obj.sum();
+
+    // 3) this в конструкторах и классах - это новый экземпляр объектов.
+
+// function User(name, id) {
+//     this.name = name;
+//     this.id = id;
+//     this.human = true;
+//     this.hello = function() {
+//         console.log(`Hello ${this.name}`);
+//     }
+// }
+
+// 4) Ручная привязка к this: call, apply и bind
+
+// function sayName(surname) {
+//     console.log(this);
+//     console.log(this.name + surname);
+// }
+
+// const user = {
+//     name: 'John',
+// }
+
+// sayName.call(user, 'Smith');
+// sayName.apply(user, ['Smith']);
+
+// function count(num) {
+//     return this * num;
+// }
+
+// const double = count.bind(2);
+
+// console.log(double(3));
+// console.log(double(13));
