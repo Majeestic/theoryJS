@@ -962,35 +962,67 @@
 
 // ******************** Классы ***********************
 
-class Rectangle {
-    constructor(height, width) {
-        this.height = height;
-        this.width = width;
+// class Rectangle {
+//     constructor(height, width) {
+//         this.height = height;
+//         this.width = width;
+//     }
+
+//     calcArea() {
+//         return this.height * this.width;
+//     }
+// }
+
+// // const squere = new Rectangle(10, 10);
+// // const long = new Rectangle(20, 100);
+// // console.log(squere.calcArea());
+// // console.log(long.calcArea());
+
+// class ColoredRectangleWithText extends Rectangle {
+//     constructor(height, width, text, bgColor) {
+//         super(height, width);
+//         this.text = text;
+//         this.bgColor = bgColor;
+//     }
+
+//     showMyProps() {
+//         console.log(`Текст: ${this.text}, цвет: ${this.bgColor}`);
+//     }
+// }
+
+// const div = new ColoredRectangleWithText(25, 10, 'hello world', 'red');
+
+// div.showMyProps();
+// console.log(div.calcArea())
+
+
+
+// ********************* рест оператор добавляет не определненные операторы в массив ************************
+
+// const log = function(a, b, ...rest) {
+//     console.log(a, b, rest)
+// }
+
+// log('dddd', 'aaaa', 'ccccc', 'tewwr', 100);
+
+// **********************************************************************************************************************
+//                          Глава5: Продвинутый JS
+// **********************************************************************************************************************
+
+// ******************** Локальный Сервер ********************************
+
+//  ********************************** JSON формат передачи данных, глубокое клонирование объектов **********************************
+
+const persone = {
+    name: 'Alex',
+    tel: '+798989999',
+    parents: {
+        mom: 'Liza',
+        dad: 'Mike'
     }
+};
 
-    calcArea() {
-        return this.height * this.width;
-    }
-}
-
-// const squere = new Rectangle(10, 10);
-// const long = new Rectangle(20, 100);
-// console.log(squere.calcArea());
-// console.log(long.calcArea());
-
-class ColoredRectangleWithText extends Rectangle {
-    constructor(height, width, text, bgColor) {
-        super(height, width);
-        this.text = text;
-        this.bgColor = bgColor;
-    }
-
-    showMyProps() {
-        console.log(`Текст: ${this.text}, цвет: ${this.bgColor}`);
-    }
-}
-
-const div = new ColoredRectangleWithText(25, 10, 'hello world', 'red');
-
-div.showMyProps();
-console.log(div.calcArea())
+const clone = JSON.parse(JSON.stringify(persone)); // глубокое клонирование объекта
+clone.parents.mom = 'Ann';
+console.log(persone);
+console.log(clone);
